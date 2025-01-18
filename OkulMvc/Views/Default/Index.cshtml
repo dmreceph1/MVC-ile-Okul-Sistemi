@@ -1,0 +1,32 @@
+﻿@using OkulMvc.Models.EntityFramework;
+@model List<TBLDERSLER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<h2>DERSLER</h2>
+<table class="table table-borderless">
+    <tr>
+        <th>Ders ID</th>
+        <th>Ders Adı</th>
+        <th>İŞLEMLER</th>
+    </tr>
+    <tbody>
+        @foreach ( var k in Model)
+            {
+                <tr>
+                    <td>@k.DERSID</td>
+                    <td>@k.DERSAD</td>
+                    <td><a href="/Default/Sil/@k.DERSID" class="btn btn-danger">SİL</a>
+                    <a href="/Default/DersGetir/@k.DERSID" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
+<a href="/Default/YeniDersEkle" class="btn btn-primary">Yeni Ders Kaydı Ekle</a>
+
+
+
+
+

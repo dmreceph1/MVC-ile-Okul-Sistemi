@@ -1,0 +1,44 @@
+﻿@using OkulMvc.Models.EntityFramework;
+@model List<TBLNOTLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NOTLAR</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <th>Not ID</th>
+        <th>Ders</th>
+        <th>Öğrenci ADI</th>
+        <th>Sınav 1 </th>
+        <th>Sınav 2</th>
+        <th>Sınav 3</th>
+        <th>Proje</th>
+        <th>Ortalama</th>
+        <th>Durum</th>
+        <th>İŞLEMLER</th>
+
+    </tr>
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.NOTID</td>
+                <td>@k.TBLDERSLER.DERSAD</td>
+                <td>@k.TBLOGRENCILER.OGRAD</td>
+                <td>@k.SINAV1</td>
+                <td>@k.SINAV2</td>
+                <td>@k.SINAV3</td>
+                <td>@k.PROJE</td>
+                <td>@k.ORTALAMA</td>
+                <td>@k.DURUM</td>
+                <td><a href="/Notlar/NotGetir/@k.NOTID" class="btn btn-warning">GÜNCELLE</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Notlar/YeniNotEkle" class="btn btn-primary">Yeni Sınav Kaydı Ekle</a>
+

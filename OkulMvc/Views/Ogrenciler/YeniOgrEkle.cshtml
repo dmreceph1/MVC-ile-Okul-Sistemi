@@ -1,0 +1,39 @@
+﻿@model OkulMvc.Models.EntityFramework.TBLOGRENCILER
+@{
+    ViewBag.Title = "YeniOgrEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" class="form-group-lg">
+    <div>
+        <label>Öğrenci Adını Giriniz</label>
+        <input type="text" class="form-control" name="OGRAD" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Soyadını Giriniz</label>
+        <input type="text" class="form-control" name="OGRSOYAD" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Fotoğrafını Yükleyiniz</label>
+        <input type="text" class="form-control" name="OGRFOTO" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Cinsiyetini Giriniz</label>
+        <input type="text" class="form-control" name="OGRCINSIYET" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Kulüp Bilgisini Seçiniz</label>
+        @Html.DropDownListFor(m=>m.TBLKULUPLER.KULUPID,
+       (List<SelectListItem>)ViewBag.dgr,
+       new {@class = "form-control"})
+        
+    </div>
+    <div style="margin-top:10px">
+        <button class="btn btn-info">Öğrenci Ekle</button>
+    </div>
+</form>
+
+
+
+
+

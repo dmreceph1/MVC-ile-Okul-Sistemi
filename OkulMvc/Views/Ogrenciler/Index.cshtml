@@ -1,0 +1,40 @@
+﻿@using OkulMvc.Models.EntityFramework;
+@model List<TBLOGRENCILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ÖĞRENCİLER</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <th>Öğrenci ID</th>
+        <th>Öğrenci Adı</th>
+        <th>Öğrenci Soyadı</th>
+        <th>Öğrenci Fotoğrafı</th>
+        <th>Öğrenci Cinsiyeti</th>
+        <th>Öğrenci Kulüp</th>
+        <th>İŞLEMLER</th>
+    </tr>
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.OGRENCIID</td>
+                <td>@k.OGRAD</td>
+                <td>@k.OGRSOYAD</td>
+                <td>@k.OGRFOTO</td>
+                <td>@k.OGRCINSIYET</td>
+                <td>@k.OGRKULUP</td>
+                <td><a href="/Ogrenciler/Sil/@k.OGRENCIID" class="btn btn-danger">SİL</a>
+                <a href="/Ogrenciler/OgrenciGetir/@k.OGRENCIID" class="btn btn-success">GÜNCELLE</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Ogrenciler/YeniOgrEkle" class="btn btn-primary">Yeni Öğrenci Kaydı Ekle</a>
+
+
+
